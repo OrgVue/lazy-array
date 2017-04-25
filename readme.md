@@ -1,6 +1,6 @@
 # lazy-array
 
-A lazy array, which has fast random access.
+A lazy array, which has fast random access. Consider for example a list component showing a million items with the scroll position set to display 40 items starting from item 200,000. There is no need to populate the array up to item 200,000, or after 200,040. Here the lazy array helps.
 
 ## Usage
 
