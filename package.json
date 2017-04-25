@@ -1,0 +1,24 @@
+{
+  "author": "Concentra Analytics",
+  "bugs": {
+    "url": "https://github.com/OrgVue/lazy-array/issues"
+  },
+  "homepage": "https://github.com/OrgVue/lazy-array#readme",
+  "keywords": [
+    "array",
+    "functional",
+    "lazy",
+    "random access"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "lazy-array",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OrgVue/lazy-array.git"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "version": "0.1.0"
+}
