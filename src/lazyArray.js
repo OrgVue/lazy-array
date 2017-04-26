@@ -23,9 +23,13 @@ const get = ls => i => {
 // map :: (a -> b) -> LazyArray a -> LazyArray b
 const map = f => ls => create(i => f(get(ls)(i)))
 
+// reset :: LazyArray a -> LazyArray a
+const reset = ls => [[], ls[1], ls[2], 0]
+
 // Exports
 module.exports = {
   create: create,
   get: get,
-  map: map
+  map: map,
+  reset: reset
 }
