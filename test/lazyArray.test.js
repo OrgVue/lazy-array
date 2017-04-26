@@ -33,4 +33,14 @@ describe("lazyArray", function() {
       assert.strictEqual(lazyArray.get(ls)(10), 121)
     })
   })
+
+  describe("#reset", function() {
+    var ls = lazyArray.create()
+
+    assert.strictEqual(lazyArray.isLazyArray(ls), true)
+    ls = lazyArray.reset(ls)
+    assert.strictEqual(lazyArray.isLazyArray(ls), true)
+    ls = []
+    assert.strictEqual(lazyArray.isLazyArray(ls), false)
+  })
 })
