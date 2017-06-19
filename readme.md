@@ -5,11 +5,11 @@ A lazy array, which has fast random access. Consider for example a list componen
 ## Usage
 
 ```javascript
-const lazyArray = require("lazy-array")
+const LazyArray = require("lazy-array")
 
-var integers = lazyArray.create(i => i + 1) // [1, 2, 3, 4, ...]
-var twice = lazyArray.map(x => x + x)(integers) // [2, 4, 6, ...]
+var integers = LazyArray.create(i => i + 1) // [1, 2, 3, 4, ...]
+var twice = LazyArray.map(x => x + x)(integers) // [2, 4, 6, ...]
 
-const f = lazyArray.get(twice)
+const f = LazyArray.get(twice)
 console.log(f(1000), f(1001), f(1002)) // 2002, 2004, 2006
 ```

@@ -1,5 +1,5 @@
 "use strict"
 
-const lazyArray = require("./src/lazyArray.js")
+const LazyArray = require("./src/LazyArray.js")
 
-module.exports = lazyArray
+module.exports = LazyArray
