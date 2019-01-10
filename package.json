@@ -4,12 +4,7 @@
     "url": "https://github.com/OrgVue/lazy-array/issues"
   },
   "homepage": "https://github.com/OrgVue/lazy-array#readme",
-  "keywords": [
-    "array",
-    "functional",
-    "lazy",
-    "random access"
-  ],
+  "keywords": ["array", "functional", "lazy", "random access"],
   "license": "MIT",
   "main": "index.js",
   "name": "lazy-array",
@@ -20,5 +15,5 @@
   "scripts": {
     "test": "mocha"
   },
-  "version": "0.1.0"
+  "version": "0.2.0"
 }

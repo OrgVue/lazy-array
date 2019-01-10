@@ -1,39 +1,32 @@
-// lazy-array
-
-"use strict"
-
-// create :: (Number -> a) -> Number -> LazyArray a
-const create = (f, max) => [[], f, max || 1E6, 0, "_I_AM_A_LAZY_ARRAY"]
-
-// get :: LazyArray a -> Number -> a
-const get = ls => i => {
-  if (ls[0][i] === undefined) {
-    if (ls[3] >= ls[2]) { 
-      ls[0] = []
-      ls[3] = 0
-    }
-
-    ls[0][i] = ls[1](i)
-    ls[3]++
+const LazyArray = (f, max) => {
+  const raw = {
+    type: "LazyArray",
+    count: 0,
+    data: [],
+    f: f,
+    max: max || 1e6
   }
 
-  return ls[0][i]
+  return op => (typeof op === "function" ? op(raw) : get(raw, op))
 }
 
-// isLazyArray :: a -> Bool
-const isLazyArray = a => a && a instanceof Array && a[4] === "_I_AM_A_LAZY_ARRAY"
+const get = (raw, i) => {
+  if (raw.data[i] === undefined) {
+    if (raw.count >= raw.max) {
+      raw.data = []
+      raw.count = 0
+    }
 
-// map :: (a -> b) -> LazyArray a -> LazyArray b
-const map = f => ls => create(i => f(get(ls)(i)))
+    raw.data[i] = raw.f(i)
+    raw.count++
+  }
 
-// reset :: LazyArray a -> LazyArray a
-const reset = ls => [[], ls[1], ls[2], 0, ls[4]]
+  return raw.data[i]
+}
 
-// Exports
+const clone = fold => fold(raw => LazyArray(raw.f, raw.max))
+
 module.exports = {
-  create: create,
-  get: get,
-  isLazyArray: isLazyArray,
-  map: map,
-  reset: reset
+  LazyArray: LazyArray,
+  clone: clone
 }
